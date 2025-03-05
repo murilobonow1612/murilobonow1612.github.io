@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Contador de Tempo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <img src="carta.png" class="carta">
+
+    <p>No dia <strong>9 de Janeiro de 2025, às 14:46</strong> eu estava no intervalo do trabalho, sentado na calçada da doca dos funcionários do shopping.</p> 
+        <p> Você passou por mim, depois parou, olhou para trás e decidiu vir falar comigo.</p>
+
+    <h1>Nos conhecemos há</h1>
+    <p id="contador">Carregando...</p>
+
+    <script>
+        const dataInicial = new Date(2025, 0, 9, 14, 46, 0); // 9 de Janeiro de 2025, 14:46
+
+        function calcularDiferenca(data1, data2) {
+            let anos = data2.getFullYear() - data1.getFullYear();
+            let meses = data2.getMonth() - data1.getMonth();
+            let dias = data2.getDate() - data1.getDate();
+
+            if (dias < 0) {
+                let ultimoDiaMesAnterior = new Date(data2.getFullYear(), data2.getMonth(), 0).getDate();
+                dias += ultimoDiaMesAnterior;
+                meses--;
+            }
+
+            if (meses < 0) {
+                meses += 12;
+                anos--;
+            }
+
+            return { anos, meses, dias };
+        }
+
+        function atualizarContador() {
+            const agora = new Date();
+            let diferencaMs = agora - dataInicial;
+
+            if (diferencaMs < 0) {
+                document.getElementById("contador").innerHTML = "A data ainda não chegou!";
+                document.getElementById("total-dias").innerHTML = "";
+                return;
+            }
+
+            const { anos, meses, dias } = calcularDiferenca(dataInicial, agora);
+            const diasTotais = Math.floor(diferencaMs / (1000 * 60 * 60 * 24));
+            const semanasTotais = Math.floor(diasTotais / 7);
+            const semanas = semanasTotais % 4;
+
+            const horas = Math.floor(diferencaMs / (1000 * 60 * 60)) % 24;
+            const minutos = Math.floor(diferencaMs / (1000 * 60)) % 60;
+            const segundos = Math.floor(diferencaMs / 1000) % 60;
+
+            document.getElementById("contador").innerHTML = 
+                `${anos} ano(s), ${meses} mês, ${semanas} semana(s), ${dias} dia(s), ${horas} hora(s), ${minutos} minuto(s) e ${segundos} segundo(s)`;
+        }
+
+        setInterval(atualizarContador, 1000);
+        atualizarContador();
+    </script>
+
+</body>
+</html>
