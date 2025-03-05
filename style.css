@@ -28,3 +28,7 @@ body {
 .carta{
     max-width: 500px;
 }
+
+p{
+    margin: 30px;
+}
