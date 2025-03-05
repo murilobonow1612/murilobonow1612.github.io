@@ -10,7 +10,7 @@ body {
     margin: 0;
 
     overflow-x: hidden;
-
+    font-size: 20px;
 
     
 }
@@ -21,14 +21,27 @@ body {
 }
 
 #contador {
-    font-size: 24px;
-    font-weight: bold;
+    font-size: 20px;
 }
 
 .carta{
     max-width: 500px;
+    display: block;   /* Permite usar margin auto */
+    margin: 0 auto;   /* Centraliza horizontalmente */
+    width: 100%;
 }
 
 p{
     margin: 30px;
+}
+
+.foto_corredor{
+    max-width: 250px;
+}
+
+.primeiroOi{
+    max-width: 300px;
+    display: block;   /* Permite usar margin auto */
+    margin: 0 auto;   /* Centraliza horizontalmente */
+    width: 100%;
 }

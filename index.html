@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="pt">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Contador de Tempo</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
     <img src="carta.png" class="carta">
 
-    <p>No dia <strong>9 de Janeiro de 2025, às 14:46</strong> eu estava no intervalo do trabalho, sentado na calçada da doca dos funcionários do shopping.</p> 
-        <p> Você passou por mim, depois parou, olhou para trás e decidiu vir falar comigo.</p>
 
-    <h1>Nos conhecemos há</h1>
+    <img src="primeiroOi.png" class="primeiroOi">
     <p id="contador">Carregando...</p>
 
     <script>
@@ -57,13 +57,28 @@
             const minutos = Math.floor(diferencaMs / (1000 * 60)) % 60;
             const segundos = Math.floor(diferencaMs / 1000) % 60;
 
-            document.getElementById("contador").innerHTML = 
-                `${anos} ano(s), ${meses} mês, ${semanas} semana(s), ${dias} dia(s), ${horas} hora(s), ${minutos} minuto(s) e ${segundos} segundo(s)`;
+            document.getElementById("contador").innerHTML =
+                `${anos} ano(s)<br>
+            ${meses} mês(es)<br>
+            ${semanas} semana(s)<br>
+            ${dias} dia(s)<br>
+            ${horas} hora(s)<br>
+            ${minutos} minuto(s)<br>
+            ${segundos} segundo(s) atrás.`;
+
         }
 
         setInterval(atualizarContador, 1000);
         atualizarContador();
     </script>
 
+
+    <p>No dia <strong>9 de Janeiro de 2025, às 14:46</strong> eu estava no intervalo do trabalho, sentado na calçada da
+        doca dos funcionários do shopping.</p>
+    <p> Você passou por mim, depois parou, olhou para trás e decidiu vir falar comigo.</p>
+
+    <p>A calçada da doca virou nosso ponto de encontro, mas por causa do Sol, posteriormente mudamos o ponto de encontro para esse corredor: </p>
+    <img src="corredor.jpg" class="foto_corredor">
 </body>
+
 </html>
